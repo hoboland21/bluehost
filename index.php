@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>MCS Time Administration</title>
+  <title>Saipan Tech Application Gallery</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -24,28 +24,25 @@
 <body>
   <div id="app">
     <nav class="navbar navbar-expand navbar-dark bg-dark">
-      <a href="#" class="navbar-brand">
+      <a href="/" class="navbar-brand">
       
-      <img routerLink="home" src="assets/img/Working Logo Icon.png" alt="ST Logo" style="width: 165px"></a>
-      <ul class="navbar-nav ml-5 mr-auto" >
-        <li class="nav-item" *ngIf='isLoggedIn'>
-          <a href="desktop" class="nav-link" routerLink="desktop">Desktop</a>
+      <img  src="assets/img/Working Logo Icon.png" alt="ST Logo" style="width: 165px"></a>
+     <ul class="navbar-nav ml-auto" >
+         <li class="nav-item">
+          <a href="login" class="nav-link">Login</a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto" >
-         <li class="nav-item" *ngIf="!isLoggedIn">
-          <a href="login" class="nav-link" routerLink="login">Login</a>
-        </li>
-      </ul>
-      <ul class="navbar-nav ml-auto" >
-        <li class="nav-item" *ngIf="isLoggedIn">
-          <button (click)="logout()">LogOut</button>
+        <li class="nav-item">
+          <a href="logout" class="nav-link">Logout</a>
+
         </li>
       </ul>
     </nav>
     <div class="container">
-      <router-outlet></router-outlet>
-    </div>
+<? phpinfo() ?>  
+
+  </div>
   </div>
   <script src="/assets/js/jquery-3.3.1.min.js" ></script>
   <script src="/assets/bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
