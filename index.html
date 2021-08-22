@@ -22,71 +22,30 @@
   </style>
 
 <body>
-    <div class="container-fluid header">
-
-        <div class="row">
+  <div id="app">
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <a href="#" class="navbar-brand">
       
-          <div class="col-md-2" style="text-align:center">
-            <a href="#"><img src="/assets/img/MCSIcon.png" style="height:50px" class="logo"></a>
-            <h5 class="d-inline-block nova">MCS Time Sheet</h5>
-          </div>
-      
-          <div class="col-md-8" style="text-align:center">
-            <p>{{ today | date : 'fullDate' }}</p>
-            <a href="#"><img src="/assets/img/home-icon-square.png" style="height:30px">
-              <img src="/assets/img/" alt="">
-            </a>
-          </div>
-      
-          <div class="col-md-2" style="text-align:center">
-            <div class="mb-3" *ngIf="user.username">{{ user.username }}</div>
-      
-            <button class="btn btn-sm btn-outline-primary"                           (click)="mySettings()">My Settings</button>
-            <button class="btn btn-sm btn-outline-secondary ml-3"  *ngIf="user.is_staff"   (click)="goAdmin()">Admin</button>
-            <button class="btn btn-sm btn-outline-warning ml-3"                       (click)="logOff()">Log Off</button>
-          </div>
-      
-        </div>
-      
-      </div>
-      
-      
-      
-<div>
-    <div class="card" style="margin:200px auto; width:400px; border:1px solid green;background-color:inherit" >
-      <div class="card-header" style="text-align:center" >
-        <img routerLink="home" src="assets/img/MCSIcon.png" alt="CS Icon" >
-        <br>
-        <span>Mount Carmel School Time Administration</span>
-      </div>
-      <div class="card-body">
-
-        <form [formGroup] = "formdata" (ngSubmit) = "onSubmit(formdata.value)" >
-          <input type = "text" class = "form-control" name = "username" placeholder = "username" 
-            formControlName="username">
-          <br/>
-          
-          <input type = "password" class = "form-control" name="password" 
-            placeholder = "password" formControlName = "password">
-          <br/>
-          
-          <input type = "submit" class = "form-control" value = "Log In">
-    
-        </form>
-      
-  
-
-      </div>
-    
-   
-    
+      <img routerLink="home" src="assets/Working Logo Icon.png" alt="ST Logo" style="width: 165px"></a>
+      <ul class="navbar-nav ml-5 mr-auto" >
+        <li class="nav-item" *ngIf='isLoggedIn'>
+          <a href="desktop" class="nav-link" routerLink="desktop">Desktop</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto" >
+         <li class="nav-item" *ngIf="!isLoggedIn">
+          <a href="login" class="nav-link" routerLink="login">Login</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto" >
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <button (click)="logout()">LogOut</button>
+        </li>
+      </ul>
+    </nav>
+    <div class="container">
+      <router-outlet></router-outlet>
     </div>
-    
-
-     
- 
- 
-
   </div>
   <script src="/assets/js/jquery-3.3.1.min.js" ></script>
   <script src="/assets/bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
