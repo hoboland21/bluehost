@@ -40,7 +40,28 @@
       </ul>
     </nav>
     <div class="container">
-<? phpinfo() ?>  
+<?  
+
+
+$conn = new mysqli("saipantech.com", "saipante_quasar", "pimil210", "saipante_db1");
+  
+if ($conn->connect_error) {
+  die("ERROR: Unable to connect: " . $conn->connect_error);
+} 
+
+echo 'Connected to the database.<br>';
+/*
+$result = $conn->query("SELECT name FROM employee");
+
+echo "Number of rows: $result->num_rows";
+
+$result->close();
+*/
+$conn->close();
+
+
+
+?>  
 
   </div>
   </div>
